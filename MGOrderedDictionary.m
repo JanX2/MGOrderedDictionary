@@ -38,7 +38,12 @@ static NSString *DescriptionForObject(id object, id locale, NSUInteger indent)
 
 - (instancetype)init
 {
-	return [self initWithCapacity:0];
+	self = [super init];
+	if (self != nil)
+	{
+		[self commonInitWithCapacity:0];
+	}
+	return self;
 }
 
 - (instancetype)initWithCapacity:(NSUInteger)capacity
@@ -46,10 +51,15 @@ static NSString *DescriptionForObject(id object, id locale, NSUInteger indent)
 	self = [super init];
 	if (self != nil)
 	{
-		dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
-		array = [[NSMutableArray alloc] initWithCapacity:capacity];
+		[self commonInitWithCapacity:capacity];
 	}
 	return self;
+}
+
+- (void)commonInitWithCapacity:(NSUInteger)capacity
+{
+	dictionary = [[NSMutableDictionary alloc] initWithCapacity:capacity];
+	array = [[NSMutableArray alloc] initWithCapacity:capacity];
 }
 
 - (instancetype)copy
