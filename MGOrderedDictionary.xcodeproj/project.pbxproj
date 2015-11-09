@@ -160,7 +160,7 @@
 			name = MGOrderedDictionaryTests;
 			productName = MGOrderedDictionaryTests;
 			productReference = FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.octest */;
-			productType = "com.apple.product-type.bundle";
+			productType = "com.apple.product-type.bundle.ocunit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -168,7 +168,7 @@
 		FAB9A49316912E2000497B89 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0450;
+				LastUpgradeCheck = 0710;
 			};
 			buildConfigurationList = FAB9A49616912E2000497B89 /* Build configuration list for PBXProject "MGOrderedDictionary" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -235,6 +235,7 @@
 				CLANG_CXX_LIBRARY = "libc++";
 				CLANG_ENABLE_OBJC_ARC = YES;
 				COPY_PHASE_STRIP = NO;
+				ENABLE_TESTABILITY = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				ONLY_ACTIVE_ARCH = YES;
@@ -290,6 +291,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MGOrderedDictionary-Prefix.pch";
 				INFOPLIST_FILE = "Tests/MGOrderedDictionaryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoawithlove.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
@@ -305,6 +307,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MGOrderedDictionary-Prefix.pch";
 				INFOPLIST_FILE = "Tests/MGOrderedDictionaryTests-Info.plist";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoawithlove.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = octest;
 			};
