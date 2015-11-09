@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		FAB9A4A016912E2000497B89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9A49F16912E2000497B89 /* Foundation.framework */; };
-		FAB9A4AF16912E2000497B89 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9A4AE16912E2000497B89 /* SenTestingKit.framework */; };
 		FAB9A4B216912E2000497B89 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9A49F16912E2000497B89 /* Foundation.framework */; };
 		FAB9A4B516912E2000497B89 /* libMGOrderedDictionary.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FAB9A49C16912E2000497B89 /* libMGOrderedDictionary.a */; };
 		FAB9A4CF1691334B00497B89 /* MGOrderedDictionaryTests.m in Sources */ = {isa = PBXBuildFile; fileRef = FAB9A4CD1691334B00497B89 /* MGOrderedDictionaryTests.m */; };
@@ -41,8 +40,7 @@
 		FAB9A49C16912E2000497B89 /* libMGOrderedDictionary.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libMGOrderedDictionary.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9A49F16912E2000497B89 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		FAB9A4A316912E2000497B89 /* MGOrderedDictionary-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MGOrderedDictionary-Prefix.pch"; sourceTree = "<group>"; };
-		FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGOrderedDictionaryTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
-		FAB9A4AE16912E2000497B89 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MGOrderedDictionaryTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		FAB9A4CB1691334B00497B89 /* MGOrderedDictionaryTests-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = "MGOrderedDictionaryTests-Info.plist"; path = "Tests/MGOrderedDictionaryTests-Info.plist"; sourceTree = SOURCE_ROOT; };
 		FAB9A4CC1691334B00497B89 /* MGOrderedDictionaryTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = MGOrderedDictionaryTests.h; path = Tests/MGOrderedDictionaryTests.h; sourceTree = SOURCE_ROOT; };
 		FAB9A4CD1691334B00497B89 /* MGOrderedDictionaryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = MGOrderedDictionaryTests.m; path = Tests/MGOrderedDictionaryTests.m; sourceTree = SOURCE_ROOT; };
@@ -65,7 +63,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				FAB9A4AF16912E2000497B89 /* SenTestingKit.framework in Frameworks */,
 				FAB9A4B216912E2000497B89 /* Foundation.framework in Frameworks */,
 				FAB9A4B516912E2000497B89 /* libMGOrderedDictionary.a in Frameworks */,
 			);
@@ -90,7 +87,7 @@
 			isa = PBXGroup;
 			children = (
 				FAB9A49C16912E2000497B89 /* libMGOrderedDictionary.a */,
-				FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.octest */,
+				FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -99,7 +96,6 @@
 			isa = PBXGroup;
 			children = (
 				FAB9A49F16912E2000497B89 /* Foundation.framework */,
-				FAB9A4AE16912E2000497B89 /* SenTestingKit.framework */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -159,8 +155,8 @@
 			);
 			name = MGOrderedDictionaryTests;
 			productName = MGOrderedDictionaryTests;
-			productReference = FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.octest */;
-			productType = "com.apple.product-type.bundle.ocunit-test";
+			productReference = FAB9A4AD16912E2000497B89 /* MGOrderedDictionaryTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
@@ -287,13 +283,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MGOrderedDictionary-Prefix.pch";
 				INFOPLIST_FILE = "Tests/MGOrderedDictionaryTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoawithlove.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Debug;
 		};
@@ -303,13 +299,13 @@
 				FRAMEWORK_SEARCH_PATHS = (
 					"\"$(SDKROOT)/Developer/Library/Frameworks\"",
 					"\"$(DEVELOPER_LIBRARY_DIR)/Frameworks\"",
+					"$(inherited)",
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "MGOrderedDictionary-Prefix.pch";
 				INFOPLIST_FILE = "Tests/MGOrderedDictionaryTests-Info.plist";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.cocoawithlove.${PRODUCT_NAME:rfc1034identifier}";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				WRAPPER_EXTENSION = octest;
 			};
 			name = Release;
 		};

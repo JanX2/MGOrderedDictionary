@@ -54,15 +54,15 @@
 {
 	MGOrderedDictionary *dict = [[MGOrderedDictionary alloc] initWithDictionary:@{ @"test": @"success" }];
 	
-	STAssertNotNil(dict, @"Ordered dictionary was nil");
-	STAssertEqualObjects([dict keyAtIndex:0], @"test", @"Ordered dictionary missing its key");
-	STAssertEqualObjects([dict objectForKey:@"test"], @"success", @"Ordered dictionary missing its value");
+	XCTAssertNotNil(dict, @"Ordered dictionary was nil");
+	XCTAssertEqualObjects([dict keyAtIndex:0], @"test", @"Ordered dictionary missing its key");
+	XCTAssertEqualObjects([dict objectForKey:@"test"], @"success", @"Ordered dictionary missing its value");
 	
 	[dict insertObject:@"fun" forKey:@"something" atIndex:0];
-	STAssertEquals(dict.count, (NSUInteger)2, @"Ordered dictionary didn't insert new value");
-	STAssertEqualObjects([dict keyAtIndex:0], @"something", @"Ordered dictionary didn't insert in the right place");
-	STAssertEqualObjects([dict keyAtIndex:1], @"test", @"Ordered dictionary didn't maintain ordering");
-	STAssertEqualObjects([dict objectForKey:@"something"], @"fun", @"Ordered dictionary didn't return the right value for key");
+	XCTAssertEqual(dict.count, (NSUInteger)2, @"Ordered dictionary didn't insert new value");
+	XCTAssertEqualObjects([dict keyAtIndex:0], @"something", @"Ordered dictionary didn't insert in the right place");
+	XCTAssertEqualObjects([dict keyAtIndex:1], @"test", @"Ordered dictionary didn't maintain ordering");
+	XCTAssertEqualObjects([dict objectForKey:@"something"], @"fun", @"Ordered dictionary didn't return the right value for key");
 }
 
 - (void)testSubscriptOperators
@@ -72,12 +72,12 @@
 	dict[@"a"] = @"b";
 	dict[@"c"] = @"d";
 	
-	STAssertEqualObjects(dict[0], @"a", @"First key was wrong");
-	STAssertEqualObjects(dict[@"a"], @"b", @"First access by keyed subscript was wrong");
-	STAssertEqualObjects(dict[dict[0]], @"b", @"First access by nesting indexed subscript in keyed subscript was wrong");
-	STAssertEqualObjects(dict[1], @"c", @"Second key was wrong");
-	STAssertEqualObjects(dict[@"c"], @"d", @"Second access by keyed subscript was wrong");
-	STAssertEqualObjects(dict[dict[1]], @"d", @"Second access by nesting indexed subscript in keyed subscript was wrong");
+	XCTAssertEqualObjects(dict[0], @"a", @"First key was wrong");
+	XCTAssertEqualObjects(dict[@"a"], @"b", @"First access by keyed subscript was wrong");
+	XCTAssertEqualObjects(dict[dict[0]], @"b", @"First access by nesting indexed subscript in keyed subscript was wrong");
+	XCTAssertEqualObjects(dict[1], @"c", @"Second key was wrong");
+	XCTAssertEqualObjects(dict[@"c"], @"d", @"Second access by keyed subscript was wrong");
+	XCTAssertEqualObjects(dict[dict[1]], @"d", @"Second access by nesting indexed subscript in keyed subscript was wrong");
 }
 
 - (void)testSorting
@@ -95,12 +95,12 @@
 	dict[@"r"] = @8;
 	dict[@"q"] = @9;
 	
-	STAssertEqualObjects(dict.allKeys, (@[@"z", @"y", @"x", @"w", @"v", @"u", @"t", @"s", @"r", @"q"]), @"Key array wasn't correctly inserted.");
+	XCTAssertEqualObjects(dict.allKeys, (@[@"z", @"y", @"x", @"w", @"v", @"u", @"t", @"s", @"r", @"q"]), @"Key array wasn't correctly inserted.");
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wselector"
 	[dict sortUsingSelector:@selector(localizedCompare:)];
 #pragma clang diagnostic pop
-	STAssertEqualObjects(dict.allKeys, (@[@"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z"]), @"Key array isn't correctly sorted.");
+	XCTAssertEqualObjects(dict.allKeys, (@[@"q", @"r", @"s", @"t", @"u", @"v", @"w", @"x", @"y", @"z"]), @"Key array isn't correctly sorted.");
 }
 
 @end

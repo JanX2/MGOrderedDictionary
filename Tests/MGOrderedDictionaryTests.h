@@ -21,7 +21,7 @@
 //     distribution.
 //
 
-#import <SenTestingKit/SenTestingKit.h>
+#import <XCTest/XCTest.h>
 
-@interface MGOrderedDictionaryTests : SenTestCase
+@interface MGOrderedDictionaryTests : XCTestCase
 @end
