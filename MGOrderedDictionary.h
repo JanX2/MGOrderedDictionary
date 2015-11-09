@@ -25,25 +25,25 @@
 
 #import <Foundation/Foundation.h>
 
-@interface MGOrderedDictionary : NSMutableDictionary
+@interface MGOrderedDictionary<KeyType, ObjectType> : NSMutableDictionary<KeyType, ObjectType>
 {
-	NSMutableDictionary *dictionary;
-	NSMutableArray *array;
+	NSMutableDictionary<KeyType, ObjectType> *dictionary;
+	NSMutableArray<KeyType> *array;
 }
 
-- (void)insertObject:(id)anObject forKey:(id<NSCopying>)aKey atIndex:(NSUInteger)anIndex;
+- (void)insertObject:(ObjectType)anObject forKey:(KeyType)aKey atIndex:(NSUInteger)anIndex;
 - (id)keyAtIndex:(NSUInteger)anIndex;
 - (NSEnumerator *)reverseKeyEnumerator;
 
-- (id)objectAtIndexedSubscript:(NSUInteger)idx;
+- (ObjectType)objectAtIndexedSubscript:(NSUInteger)idx;
 
-- (id)objectForKeyedSubscript:(id)key;
-- (void)setObject:(id)obj forKeyedSubscript:(id<NSCopying>)key;
+- (ObjectType)objectForKeyedSubscript:(id)key;
+- (void)setObject:(ObjectType)obj forKeyedSubscript:(KeyType)key;
 
-- (NSUInteger)indexOfKey:(id)anObject;
-- (NSUInteger)indexOfKey:(id)anObject inRange:(NSRange)range;
-- (NSUInteger)indexOfKeyIdenticalTo:(id)anObject;
-- (NSUInteger)indexOfKeyIdenticalTo:(id)anObject inRange:(NSRange)range;
+- (NSUInteger)indexOfKey:(KeyType)anObject;
+- (NSUInteger)indexOfKey:(KeyType)anObject inRange:(NSRange)range;
+- (NSUInteger)indexOfKeyIdenticalTo:(KeyType)anObject;
+- (NSUInteger)indexOfKeyIdenticalTo:(KeyType)anObject inRange:(NSRange)range;
 - (id)lastKey;
 
 - (void)sortUsingFunction:(NSInteger (*)(id, id, void *))compare context:(void *)context;
